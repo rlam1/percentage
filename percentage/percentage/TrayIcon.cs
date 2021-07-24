@@ -25,14 +25,14 @@ namespace percentage
             contextMenu.Items.AddRange(new ToolStripMenuItem[] { menuItem });
 
             menuItem.Click += new System.EventHandler(MenuItemClick);
-            //menuItem.MergeIndex = 789;
+            menuItem.MergeIndex = 0;
             menuItem.Text = "E&xit";
 
             notifyIcon.ContextMenuStrip = contextMenu;
             notifyIcon.Visible = true;
 
             Timer timer = new Timer();
-            timer.Interval = 1000;
+            timer.Interval = /*60**/1000; // Uncomment the 60* to decrease ticks to once per minute.
             timer.Tick += new EventHandler(TimerTick);
             timer.Start();
         }
