@@ -7,7 +7,7 @@ namespace percentage
 {
     class TrayIcon
     {
-        [DllImport("user32.dll", CharSet=CharSet.Auto)]
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
         static extern bool DestroyIcon(IntPtr handle);
 
         private const int fontSize = 18;
@@ -80,13 +80,13 @@ namespace percentage
             Color redColor = Color.Red;
             Color color;
 
-            if(isCharging)
+            if (isCharging)
             {
                 color = greenColor;
             }
             else
             {
-                if(Int32.Parse(percentage) <= 30)
+                if (Int32.Parse(percentage) <= 30)
                 {
                     color = redColor;
                 }
