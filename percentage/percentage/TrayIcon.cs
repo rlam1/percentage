@@ -17,18 +17,18 @@ namespace percentage
 
         public TrayIcon()
         {
-            ContextMenu contextMenu = new ContextMenu();
-            MenuItem menuItem = new MenuItem();
+            ContextMenuStrip contextMenu = new ContextMenuStrip();
+            ToolStripMenuItem menuItem = new ToolStripMenuItem();
 
             notifyIcon = new NotifyIcon();
 
-            contextMenu.MenuItems.AddRange(new MenuItem[] { menuItem });
+            contextMenu.Items.AddRange(new ToolStripMenuItem[] { menuItem });
 
             menuItem.Click += new System.EventHandler(MenuItemClick);
-            menuItem.Index = 0;
+            //menuItem.MergeIndex = 789;
             menuItem.Text = "E&xit";
 
-            notifyIcon.ContextMenu = contextMenu;
+            notifyIcon.ContextMenuStrip = contextMenu;
             notifyIcon.Visible = true;
 
             Timer timer = new Timer();
