@@ -73,8 +73,30 @@ namespace percentage
             PowerStatus powerStatus = SystemInformation.PowerStatus;
             String percentage = (powerStatus.BatteryLifePercent * 100).ToString();
             bool isCharging = SystemInformation.PowerStatus.PowerLineStatus == PowerLineStatus.Online;
-            String bitmapText = isCharging ? percentage + "*" : percentage;
-            using (Bitmap bitmap = new Bitmap(GetTextBitmap(bitmapText, new Font(font, fontSize), Color.White)))
+            String bitmapText = percentage;
+
+            Color whiteColor = Color.White;
+            Color greenColor = System.Drawing.ColorTranslator.FromHtml("#7CFC00");
+            Color redColor = Color.Red;
+            Color color;
+
+            if(isCharging)
+            {
+                color = greenColor;
+            }
+            else
+            {
+                if(Int32.Parse(percentage) <= 30)
+                {
+                    color = redColor;
+                }
+                else
+                {
+                    color = whiteColor;
+                }
+            }
+
+            using (Bitmap bitmap = new Bitmap(GetTextBitmap(bitmapText, new Font(font, fontSize), color)))
             {
                 System.IntPtr intPtr = bitmap.GetHicon();
                 try
