@@ -32,7 +32,7 @@ namespace percentage
             notifyIcon.Visible = true;
 
             Timer timer = new Timer();
-            timer.Interval = /*60**/1000; // Uncomment the 60* to decrease ticks to once per minute.
+            timer.Interval = /*60**/5000; // Uncomment the 60* to decrease ticks to once per 5 minutes.
             timer.Tick += new EventHandler(TimerTick);
             timer.Start();
         }
